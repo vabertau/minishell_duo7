@@ -6,7 +6,7 @@
 /*   By: vabertau <vabertau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 00:46:16 by hedi              #+#    #+#             */
-/*   Updated: 2024/06/15 17:12:30 by vabertau         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:09:00 by vabertau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ static void	ft_cd_inc2(char **split_cmd, char **tmp2, t_data *shell)
 		perror("cd: error retrieving current directory: getcwd: \
 			cannot access parent directories: No such file or directory");
 		*tmp2 = ft_strjoin(get_var("PWD", shell)->var, "/..");
+	}
+	if ((!ft_strcmp(split_cmd[1], ".") || !ft_strcmp(split_cmd[1], "./")))
+	{
+		perror("cd :");
+		*tmp2 = ft_strjoin(get_var("PWD", shell)->var, "/");
 	}
 }
 
