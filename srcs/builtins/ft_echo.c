@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vabertau <vabertau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:27:39 by vabertau          #+#    #+#             */
-/*   Updated: 2024/06/15 17:26:29 by vabertau         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:27:35 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_echo(char **split_cmd)
 
 	i = 1;
 	nl_to_put = 1;
-	if (split_cmd[1] && !ft_strncmp(split_cmd[1], "-n", 3))
+	if (split_cmd[1] && !ft_strncmp(split_cmd[1], "-n", 2))
 	{
 		nl_to_put = 0;
 		i++;
