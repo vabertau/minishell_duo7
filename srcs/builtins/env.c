@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vabertau <vabertau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 00:47:00 by hedi              #+#    #+#             */
-/*   Updated: 2024/06/15 17:34:51 by vabertau         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:04:36 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void	ft_update_env_inc2(t_env **tmp, char **s, int pos)
 	{
 		if ((*tmp)->val)
 			free((*tmp)->val);
-		(*tmp)->val = s[1] ? ft_strdup(s[1]) : NULL;
+		if (s[1])
+			(*tmp)->val = ft_strdup(s[1]);
+		else
+			(*tmp)->val = NULL;
 		if (s[1] && !(*tmp)->val)
 			perror("malloc");
 	}
@@ -59,9 +62,7 @@ void	ft_update_env_inc2(t_env **tmp, char **s, int pos)
 				(*tmp)->val);
 	}
 	else
-	{
 		(*tmp)->var = ft_strdup((*tmp)->var_name);
-	}
 	if (!(*tmp)->var)
 		perror("malloc");
 }
