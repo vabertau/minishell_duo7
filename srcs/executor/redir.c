@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 21:03:31 by hedi              #+#    #+#             */
-/*   Updated: 2024/06/13 10:15:12 by hzaz             ###   ########.fr       */
+/*   Updated: 2024/06/15 17:36:05 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,6 @@ void	handle_output_redirection(t_token *redir, t_data *shell)
 		|| redir->next->type != RIGHT2)
 		safe_dup2(redir->fd, STDOUT_FILENO, shell);
 	safe_close(redir->fd, shell);
-}
-
-void	handle_redirections(t_exec *cmd, t_data *shell)
-{
-	t_token	*redir;
-
-	redir = cmd->redir;
-	while (redir != NULL)
-	{
-		if (redir->type == LEFT1 || redir->type == LEFT2)
-			handle_input_redirection(redir, shell);
-		else if (redir->type == RIGHT1 || redir->type == RIGHT2)
-			handle_output_redirection(redir, shell);
-		redir = redir->next;
-	}
 }
 
 void	prepare_heredocs(t_data *shell)
@@ -108,9 +93,7 @@ void	fill_redir_heredoc(t_data *shell, int *cpt, t_token *redir)
 			free(line);
 			break ;
 		}
-		write(fd, line, strlen(line));
-		write(fd, "\n", 1);
-		free(line);
+		filler_hd(line, fd);
 		line = readline("> ");
 	}
 	redir->word = ft_strdup(full_path);
