@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vabertau <vabertau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:05:07 by hzaz              #+#    #+#             */
-/*   Updated: 2024/06/15 16:22:09 by vabertau         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:58:12 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,8 @@ int					ft_echo(char **split_cmd);
 // ====== EXEC ======
 
 char				*join_free1(char const *s1, char const *s2);
-
+void				filler_hd(char *line, int fd);
+void				exec_path(t_data *sh, char **f, char *tmp);
 // ====== MAIN ======
 
 void				set_char_env(t_data *shell);

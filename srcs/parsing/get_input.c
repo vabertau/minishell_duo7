@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vabertau <vabertau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:55:39 by vabertau          #+#    #+#             */
-/*   Updated: 2024/06/14 18:47:22 by vabertau         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:55:46 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	get_input(t_data *data)
 	//line = ft_strdup("echo lol | > lol");
 	if (line == NULL)
 	{
-		ft_printf("\n");
+		printf("\n");
 		exit_free(data, 0);
 	}
 	data->cmdline = line;
