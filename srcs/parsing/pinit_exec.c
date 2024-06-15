@@ -6,7 +6,7 @@
 /*   By: vabertau <vabertau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:52:27 by vabertau          #+#    #+#             */
-/*   Updated: 2024/06/14 18:22:53 by vabertau         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:09:14 by vabertau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static void	init_redir(t_data *data)
 	while (i < data->nb_cmd)
 	{
 		tmp_exec->redir = NULL;
-		//tmp_exec->nb_redir = 0; //added for echo lol|>lol
 		tmp_exec = tmp_exec->next;
 		i++;
 	}
